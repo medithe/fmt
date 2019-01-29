@@ -3514,7 +3514,7 @@ FMT_END_NAMESPACE
     typedef typename std::remove_cv<std::remove_pointer< \
       typename std::decay<decltype(s)>::type>::type>::type ct; \
     struct str : fmt::compile_string { \
-      typedef ct char_type; \
+      [[maybe_unused]] typedef ct char_type; \
       FMT_CONSTEXPR operator fmt::basic_string_view<ct>() const { \
         return {s, sizeof(s) / sizeof(ct) - 1}; \
       } \
